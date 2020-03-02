@@ -18,7 +18,7 @@ def load_rating_data(dataset = 'ratings'):
     data = array(prefer)
     return data
 
-#不同于auto_rec对于数据的处理
+#不同于auto_rec和K-NN对于数据的处理
 #这里以1:5的比例将ratings分为测试集与训练集
 def spilt_rating_dat(data, size=0.2):
     train_data = []
