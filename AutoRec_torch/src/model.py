@@ -32,7 +32,7 @@ class Model:
         if plot:
             x_label = np.arange(0,num_epoch,1)
             plt.plot(x_label, RMSE, 'b-.')
-            my_x_ticks = np.arange(0, num_epoch, 10)
+            my_x_ticks = np.arange(0, num_epoch, 50)
             plt.xticks(my_x_ticks)
             plt.title("RMSE of testing data")
             plt.xlabel("Number of epoch")
@@ -42,7 +42,7 @@ class Model:
 
 
     #批训练
-    def train(self, train_loader, epoch):
+    def train(self, train_loader, epoch, display_step = 10):
         self.net.train()
         features = Variable(torch.FloatTensor(self.batch_size, self.feature_size))
         masks = Variable(torch.FloatTensor(self.batch_size, self.feature_size))
@@ -60,10 +60,10 @@ class Model:
             loss.backward()
             self.opt.step()
 
-        if (epoch%10==0):
+        if (epoch % display_step == 0):
             print ("Epoch %d, train end." % epoch)
 
-    def test(self, trainset, testlist,epoch):
+    def test(self, trainset, testlist, epoch, display_step = 10):
         self.net.eval()
         x_mat, mask, user_based = trainset.get_mat()
         features = Variable(x_mat)
@@ -77,6 +77,6 @@ class Model:
             rmse += (xc[i][j]-r)*(xc[i][j]-r)
         rmse = math.sqrt(rmse / len(testlist))
 
-        if (epoch%10==0):
+        if (epoch % display_step == 0):
             print (" Test RMSE = %f" % rmse)
         return rmse

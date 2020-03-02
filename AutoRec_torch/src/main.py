@@ -11,6 +11,7 @@ from data_loader import load_data
 rank = 100
 batch_size = 128
 epoch_num = 500
+display_step = 10
 plotbool = True
 user_based = False
 
