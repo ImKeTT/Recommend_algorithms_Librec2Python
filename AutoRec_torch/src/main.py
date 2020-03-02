@@ -28,7 +28,7 @@ if __name__ == '__main__':
                       learning_rate=0.2,
                       batch_size=batch_size)
 
-    RMSE = setmod.run(trainset, test_list, num_epoch = epoch_num, plot = plotbool)
+    RMSE = setmod.run(trainset, test_list, num_epoch = epoch_num, plot = plotbool, display_step)
 
     end = datetime.now()
     print ("Total time: %s" % str(end-start))

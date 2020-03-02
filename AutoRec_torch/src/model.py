@@ -21,13 +21,13 @@ class Model:
         self.opt = optim.SGD(self.net.parameters(), learning_rate, momentum=0.9, weight_decay=1e-4)
         self.feature_size = hidden[0] # n_user/n_item
 
-    def run(self, trainset, testlist, num_epoch, plot = True):
+    def run(self, trainset, testlist, num_epoch, plot = True, display_step):
         RMSE = []
         for epoch in range(1, num_epoch + 1):
             #print "Epoch %d, at %s" % (epoch, datetime.now())
             train_loader = DataLoader(trainset, self.batch_size, shuffle=True, pin_memory=True)
-            self.train(train_loader, epoch)
-            rmse = self.test(trainset, testlist,epoch)
+            self.train(train_loader, epoch, display_step)
+            rmse = self.test(trainset, testlist, epoch, display_step)
             RMSE.append(rmse)
         if plot:
             x_label = np.arange(0,num_epoch,1)
