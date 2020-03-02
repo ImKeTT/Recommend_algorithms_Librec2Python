@@ -1,3 +1,7 @@
+#dataloader.py
+#Modified by ImKe on 2019/9/3.
+#Copyright © 2019 ImKe. All rights reserved.
+
 import os
 import sys
 import numpy as np
@@ -29,8 +33,7 @@ def load_data(dataset='ratings', train_ratio=0.9):
             max_uid = max(max_uid, int(tks[0]))
             max_vid = max(max_vid, int(tks[1]))
             records.append((int(tks[0]) - 1, int(tks[1]) - 1, int(tks[2])))
-    print("Max user ID {0}. Max item ID {1}. In total {2} ratings.".format(
-        max_uid, max_vid, len(records)))
+    print("Max user ID {0}. Max item ID {1}. In total {2} ratings.".format(max_uid, max_vid, len(records)))
     np.random.shuffle(records)
     train_list = records[0:int(len(records)*train_ratio)]
     test_list = records[int(len(records)*train_ratio):]
