@@ -1,4 +1,4 @@
-# Python implementations of Recommend System algorithms from [Librec](https://github.com/guoguibing/librec)
+# Python implementations of Recommender System algorithms from [Librec](https://github.com/guoguibing/librec)
 
 ## Algorithms
 
