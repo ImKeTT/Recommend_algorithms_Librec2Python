@@ -9,7 +9,7 @@
 3. **FM** (Factorization Machine)
 4. **Item/User-based K-NN**
 5. **PMF** (Probabilistic Matrix Factorization)
-6. [NCF](https://github.com/yihong-chen/neural-collaborative-filtering)(Neural Collaborative Filtering) *implement by tensorflow*
+6. [NCF](https://github.com/yihong-chen/neural-collaborative-filtering)(Neural Collaborative Filtering) *implement by Pytorch*
 
 ## Dataset
 
